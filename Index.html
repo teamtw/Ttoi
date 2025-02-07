@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Generator</title>
+    <style>
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            background: #1e1e1e;
+            padding: 15px 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Navigation Menu */
+        nav {
+            background: #333;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: #ff4757;
+            border-radius: 5px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+            background: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 71, 87, 0.2);
+        }
+
+        /* Input Field */
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 20px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Generate Button */
+        button {
+            background: #ff4757;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #e84118;
+        }
+
+        /* Image Display */
+        #image-container {
+            margin-top: 20px;
+        }
+
+        img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(255, 71, 87, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #1e1e1e;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        AI Image Generator
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h2>Generate an AI Image</h2>
+        <p>Enter a description to generate an AI-powered image:</p>
+        <input type="text" id="prompt" placeholder="Describe your image...">
+        <button onclick="generateImage()">Generate</button>
+
+        <div id="image-container"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 AI Image Generator | Designed by Raj
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        async function generateImage() {
+            const prompt = document.getElementById('prompt').value;
+            const imageContainer = document.getElementById('image-container');
+
+            if (!prompt) {
+                alert("Please enter a description.");
+                return;
+            }
+
+            imageContainer.innerHTML = "<p>Generating image...</p>";
+
+            // Placeholder API for AI Image Generation
+            // Replace this with an actual AI API like OpenAI's DALL·E
+            const imageUrl = `https://source.unsplash.com/500x500/?${prompt}`;
+
+            setTimeout(() => {
+                imageContainer.innerHTML = `<img src="${imageUrl}" alt="Generated Image">`;
+            }, 2000); // Simulating AI processing time
+        }
+    </script>
+
+</body>
+</html>
